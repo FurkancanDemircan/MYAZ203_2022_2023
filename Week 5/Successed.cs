@@ -13,7 +13,6 @@ namespace MYAZ203.Week_5
 
         }
 
-        // Overload
         public Successed(string message) : base(true, message)
         {
 

@@ -10,8 +10,8 @@ namespace MYAZ203.Week_5
     {
         public override int Extract()
         {
-            var max = _sortedSet.Last();
-            _sortedSet.Remove(max);
+            var max = _heaps.Last();
+            _heaps.Remove(max);
             return max;
         }
     }
