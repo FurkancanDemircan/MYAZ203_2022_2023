@@ -1,4 +1,4 @@
-﻿namespace MYAZ203.Week3
+﻿namespace MYAZ203.Week_3
 {
     public class Student
     {

@@ -1,5 +1,5 @@
-﻿using MYAZ203.Week4;
-namespace MYAZ203.Week4
+﻿using MYAZ203.Week_4;
+namespace MYAZ203.Week_4
 {
     public class Program
     {

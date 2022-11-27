@@ -1,4 +1,4 @@
-﻿namespace MYAZ203.Week2
+﻿namespace MYAZ203.Week_2
 {
     public class Program
     {
