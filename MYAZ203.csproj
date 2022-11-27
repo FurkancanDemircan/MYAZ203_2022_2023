@@ -6,7 +6,7 @@
     <RootNamespace>MYAZ203</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>MYAZ203.Week_6.Program</StartupObject>
+    <StartupObject>MYAZ203.AraSınav__0_.Program</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -13,6 +13,7 @@
 
         public static void Main()
         {
+            /*
             Employee[] empArray = new Employee[] {
         new Employee(){Id=1, FirstName="Ali", LastName="Dag", Employees="Emp1", Age=25 },
         new Employee(){Id=2, FirstName="Adnan", LastName="Dag", Employees="Emp2", Age=30 },
@@ -30,7 +31,21 @@
                 Console.WriteLine($"{emp.Id} {emp.FirstName} {emp.LastName} {emp.Age}");
 
             var empMax = FindMaxAgeEmployee(empArray);
-            Console.WriteLine($"{empMax.Id} {empMax.FirstName} {empMax.LastName} {empMax.Age}");
+            Console.WriteLine($"{empMax.Id} {empMax.FirstName} {empMax.LastName} {empMax.Age}");*/
+            Employee emp = new Employee();
+
+            emp.Add(new Employee() { Id = 1, FirstName = "Ali", LastName = "Dag", Employees = "Emp1", Age = 25 });
+            emp.Add(new Employee() { Id = 2, FirstName = "Adnan", LastName = "Dag", Employees = "Emp2", Age = 30 });
+            emp.Add(new Employee() { Id = 3, FirstName = "Muhammet", LastName = "Dag", Employees = "Emp3", Age = 45 });
+            emp.Add(new Employee() { Id = 4, FirstName = "Kenan", LastName = "Dag", Employees = "Emp4", Age = 50 });
+            emp.Add(new Employee() { Id = 5, FirstName = "Mehmet", LastName = "Dag", Employees = "Emp5", Age = 18 });
+            emp.Add(new Employee() { Id = 6, FirstName = "Mert", LastName = "Dag", Employees = "Emp6", Age = 23 });
+            emp.Add(new Employee() { Id = 7, FirstName = "Sinan", LastName = "Dag", Employees = "Emp7", Age = 24 });
+            emp.Add(new Employee() { Id = 8, FirstName = "İlayda", LastName = "Dag", Employees = "Emp8", Age = 22 });
+            emp.Add(new Employee() { Id = 9, FirstName = "İlayda", LastName = "Dag", Employees = "Emp9", Age = 20 });
+            emp.Add(new Employee() { Id = 10, FirstName = "İlayda", LastName = "Dag", Employees = "Emp10", Age = 19 });
+
+            emp.ShowAll();
         }
     }
 }

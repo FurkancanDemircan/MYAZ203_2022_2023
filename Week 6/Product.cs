@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MYAZ203.Week_6
 {
-    public class Product : IProduct, IComparable<Product>
+    public class Product : IProduct, IComparable<Product>, IFormattable
     {
         private int _productId;
         private string _productName;
@@ -58,14 +60,20 @@ namespace MYAZ203.Week_6
         public void GetProduct()
         {
             _products.Sort();
-            for (int i = 0; i < _products.Count; i++)
+            foreach(var product in _products)
             {
-                Console.WriteLine($"{_products[i].ProductId} " +
-                    $"{_products[i].ProductName} " +
-                    $"{_products[i].UnitPrice} " +
-                    $"{_products[i].UnitInStock} " +
-                    $"{GetUnitPrice(i)}");
+                Console.WriteLine(product.ToString());
             }
+        }
+
+        public override string? ToString()
+        {
+            return this.ToString(null, CultureInfo.CurrentCulture);
+        }
+
+        public string ToString(string format)
+        {
+            return this.ToString(format, CultureInfo.CurrentCulture);
         }
 
         public decimal GetUnitPrice(int id)
@@ -76,6 +84,26 @@ namespace MYAZ203.Week_6
         public int CompareTo(Product? other)
         {
             return this.ProductId.CompareTo(other.ProductId);
+        }
+
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            if (String.IsNullOrEmpty(format)) format = "ID";
+            if (formatProvider == null) formatProvider = CultureInfo.CurrentCulture;
+
+            switch (format.ToUpperInvariant())
+            {
+                case "ID":
+                    return $"{ProductId} {ProductName} {UnitPrice} {UnitInStock}";
+                case "N":
+                    return $"{ProductName} {ProductId} {UnitPrice} {UnitInStock}";
+                case "P":
+                    return $"{UnitPrice} {ProductId} {ProductName} {UnitInStock}";
+                case "S":
+                    return $"{UnitInStock} {ProductId} {ProductName} {UnitPrice}";
+                default:
+                    throw new Exception("Format not supported!");
+            }
         }
     }
 }
