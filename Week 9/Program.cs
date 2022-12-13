@@ -10,7 +10,16 @@ namespace MYAZ203.Week_9
     {
         public static void Main()
         {
+            var collection = new List<int>()
+            {
+                1,2,3,4,5,6,7,8,9
+            };
 
+            IEnumerator<int> enums = collection.GetEnumerator();
+            while (enums.MoveNext())
+            {
+                Console.WriteLine(enums.Current);
+            }
         }
     }
 }
