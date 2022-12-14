@@ -58,7 +58,7 @@ namespace MYAZ203.Week_11
 
         public Banking? GetOneUser(int id)
         {
-            return _context.Banking.Where(customer => customer.Id == id).FirstOrDefault();
+            return (from customer in _context.Banking where customer.Id == id select customer).FirstOrDefault();
         }
 
         public void UpdateUser(int id, Banking customer)
