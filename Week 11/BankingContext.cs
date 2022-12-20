@@ -1,27 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MYAZ203.Week_11
 {
     public class BankingContext : DbContext
     {
         public DbSet<Banking> Banking { get; set; }
-        private string DbPath { get; }
-
+        public DbSet<Customer> Customers { get; set; }
+        
+        private string _connectionString;
+        private MySqlServerVersion _serverVersion;
         public BankingContext()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "banking.db");
-            Console.WriteLine(DbPath);
+            _connectionString = "server=localhost;user=root;password=123456;database=bank-core-db";
+            _serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+            => options.UseMySql(_connectionString, _serverVersion);
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new BankingMap());
+        }
     }
 }

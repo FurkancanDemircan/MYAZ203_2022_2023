@@ -10,12 +10,12 @@ namespace MYAZ203.Week_11
     {
         // CRUD
         // Create
-        public void CreateUser(Banking customer);
+        public void CreateUser(Customer customer);
         //Read
-        public List<Banking> GetAllUser();
-        public Banking? GetOneUser(int id);
+        public List<Customer> GetAllUser();
+        public Customer? GetOneUser(int id);
         // Update
-        public void UpdateUser(int id, Banking customer);
+        public void UpdateUser(int id, Customer customer);
         // Delete
         public void DeleteUser(int id);
     }

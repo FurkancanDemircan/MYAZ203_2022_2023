@@ -10,11 +10,12 @@ namespace MYAZ203.Week_11
     {
         public static void Main()
         {
-            BankingRepository repository = new BankingRepository();
-            var value = repository.Withdraw(2, 300);
+            CustomerRepository customerRepository = new CustomerRepository();
+            BankingRepository bankingRepository = new BankingRepository();
+            var value = bankingRepository.Withdraw(2, 300);
             Console.WriteLine(value);
-            repository.GetAllUser().ForEach(
-                cust=>Console.WriteLine($"{cust.Id} {cust.FullName} {cust.Balance} {cust.Password}")
+            customerRepository.GetAllUser().ForEach(
+                cust => Console.WriteLine($"{cust.CustomerId} {cust.FullName} {cust.Balance} {cust.Password}")
                 );
         }
     }
