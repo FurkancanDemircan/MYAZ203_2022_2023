@@ -12,6 +12,8 @@
         // DD.MM.YYYY
         public DateTime CreateTime { get; set; }
 
+        public List<CreditCustomer> CreditCustomers { get; set; }
+
         public Customer()
         {
             Balance = 0;
